@@ -22,11 +22,45 @@ O compilado tem como input um código fonte, output um código alvo ou talvez um
 A construção consiste em duas fases:
 
 1. Fase de análise
-    - Análise linear
-    - Análise hierárquica
+    - Análise linear (análise léxica)
+
+        O código fonte é lido da esquerda para a direita agrupando conjunto de caracteres em conjuntos (ou tokens).
+        
+        Exemplo: montante = depósito + taxa * 60
+
+        - Id : montante, depósito, taxa
+        - At : "="
+        - Ad : "+"
+        - Mu : "*"
+        - Nu : "="
+
+
+    - Análise hierárquica (análise gramátical)
+
+        Os tokens são agrupados hierarquicamente em coleções aninhadas com significado coletivo.
+
     - Análise semântica
+
+        Realização de algumas verificações:
+
+        - Tipos;
+        - Parâmetros da função;
+
+        
 
 2. Fase de síntese
     - Geração de código intermediário
     - Otimização de geração de código;
 
+
+
+* Tabela de símbolos: é uma estrutura de dados contendo uma entrada para cada identificador com os campos contendo atributos deste identificador
+
+- Detecção de erros:
+    - Análise léxica - quando tempos um conjunto de caracteres que não é agrupado e ququalquer token.
+ex. 1abc
+
+    - Análise sintática: quando uma sequencia de tokens não atende à regras estruturais da linguagem
+    Ex: a+*b
+
+    - Análise semântica: quand aplicamos uma operaçã sobre tipos incompatíveis
